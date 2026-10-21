@@ -54,7 +54,7 @@ choix = st.sidebar.radio("Sections", [
 # -------------------------------------------------------------
 # 1. COLLECTE DES DONNÉES EN TEMPS RÉEL (FORMULAIRE + HISTORIQUE)
 # -------------------------------------------------------------
-if choix == "1. Collecte des données en temps réel":
+if choix == "Collecte en temps réel":
     st.markdown(
         """
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -112,7 +112,6 @@ if choix == "1. Collecte des données en temps réel":
     st.markdown("---")
     st.subheader("Historique des Données Collectées")
 
-    # Bouton pour réinitialiser / vider la table
     if st.button("🗑️ Réinitialiser (vider) tout l'historique"):
         if os.path.exists(DATA_FILE):
             os.remove(DATA_FILE)
@@ -137,7 +136,7 @@ if choix == "1. Collecte des données en temps réel":
 # -------------------------------------------------------------
 # 2. ANALYSE ET VISUALISATION DES CAS DE MALADIE
 # -------------------------------------------------------------
-elif choix == "2. Analyse & Visualisation des cas":
+elif choix == "Analyse & Visualisation des cas":
     st.markdown(
         """
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -176,10 +175,9 @@ elif choix == "2. Analyse & Visualisation des cas":
             st.bar_chart(df["difficulte_principale"].value_counts())
 
 # -------------------------------------------------------------
-# -------------------------------------------------------------
 # 3. OUTIL DE PRÉVISION (MODÈLE JOBLIB)
 # -------------------------------------------------------------
-elif choix == "3. Outil de prévision (Modèle ML)":
+elif choix == "Outil de prévision":
     st.markdown(
         """
         <div style="display: flex; align-items: center; gap: 12px;">
@@ -221,13 +219,11 @@ elif choix == "3. Outil de prévision (Modèle ML)":
             predict_btn = st.form_submit_button("Lancer la prévision de la maladie")
 
             if predict_btn:
-                # Si l'utilisateur a explicitement coché qu'il n'est pas atteint
                 if p_drepano == "Non" and p_crises == "Jamais" and p_profil in ["AS", "N'ayant pas / Autre"]:
                     st.markdown("---")
                     st.subheader("Résultat de la prévision")
                     st.info("ℹ️ **Information : Selon les informations renseignées, l'individu n'est pas atteint de la drépanocytose.**")
                 else:
-                    # Exécution normale du modèle ML pour les cas suspects ou à évaluer
                     input_data = pd.DataFrame([[
                         p_age, p_genre, p_poids, p_taille, p_groupe, 
                         p_drepano, p_profil, p_decouverte, p_crises, p_suivi,

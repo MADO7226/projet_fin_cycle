@@ -1,0 +1,5 @@
+horodateur,age,genre,poids_kg,taille_m,groupe_sanguin,drepano,profil,decouverte,crises,suivi,contrainte_acces,difficulte_principale,accessibilite,localite
+2026-10-11 18:57:48,25,Femme,60.0,1.7,A+,Oui,AS,Analyse de sang,Jamais,Oui,Oui,Coût des soins,Oui,urbain
+2026-10-11 18:59:11,37,Homme,80.0,1.8,B+,Oui,AS,Analyse de sang,Rarement,Non,Oui,Transport,Moyennement,rurale
+2026-10-13 16:01:18,18,Femme,75.0,1.65,O-,Non,N'ayant pas / Autre,Autre,Jamais,Non,Oui,Transport,Moyennement,urbain
+2026-10-13 16:06:25,35,Homme,75.05,1.8,AB+,Non,N'ayant pas / Autre,N'ayant,Jamais,Non,Oui,Manque de spécialistes,Moyennement,rurale
